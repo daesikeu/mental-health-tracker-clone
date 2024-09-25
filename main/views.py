@@ -14,12 +14,10 @@ from main.models import MoodEntry
 
 @login_required(login_url='/login')
 def show_main(request):
-    # mood_entries = MoodEntry.objects.all()
     mood_entries = MoodEntry.objects.filter(user=request.user)
 
     context = {
         'name': request.user.username,
-        #'name': 'Naila Zakiyyah Effendy',
         'class': 'PBP B',
         'npm': '2306165793',
         'mood_entries': mood_entries,
